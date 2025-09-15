@@ -5,7 +5,7 @@ VisiRAG (**Visual Retrieval-Augmented Generation**) is a multimodal RAG system t
 
 The project is split into two main components:
 
-- [`backend.py`](backend.py) – Handles PDF parsing, image extraction, embeddings, vector store creation, and query processing with LangChain and Azure OpenAI.
+- [`backend.py`](backend.py) – Handles PDF parsing, image extraction, embeddings, vector store creation, and query processing with LangChain and OpenAI.
 - [`frontend.py`](frontend.py) – A Streamlit-based user interface for uploading PDFs, chatting with the RAG engine, and viewing inline images in responses.
 
 ---
@@ -13,9 +13,9 @@ The project is split into two main components:
 ## ✨ Features
 
 - 📄 **PDF ingestion**: Extracts text, tables, and images from PDFs using PyMuPDF, pdfplumber, and pdfminer.
-- 🖼 **Image descriptions**: Generates AI-powered descriptions for extracted images (via Azure OpenAI).
+- 🖼 **Image descriptions**: Generates AI-powered descriptions for extracted images (via OpenAI models).
 - 🔍 **Semantic search**: Uses HuggingFace embeddings with Chroma vector store for retrieval.
-- 🤖 **RAG workflow**: Combines document retrieval with Azure OpenAI’s LLM for contextual answers.
+- 🤖 **RAG workflow**: Combines document retrieval with OpenAI’s GPT models for contextual answers.
 - 💬 **Conversational memory**: Maintains chat history for context-aware conversations.
 - 🎨 **Streamlit UI**: Upload PDFs, ask questions, and view inline images in responses interactively.
 
@@ -63,10 +63,7 @@ This will install everything defined in your `pyproject.toml`.
 Before running, create a `.env` file in the root directory with the following:
 
 ```env
-AZURE_OPENAI_DEPLOYMENT_NAME=your-deployment
-AZURE_OPENAI_API_KEY=your-api-key
-AZURE_OPENAI_API_VERSION=your-api-version
-AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
+OPENAI_API_KEY=your-openai-api-key
 ```
 
 ---
@@ -137,7 +134,7 @@ THE SOFTWARE.
 * LangChain
 * Streamlit
 * Chroma
-* Azure OpenAI
+* OpenAI
 * PyMuPDF
 * [pdfplumber](https://github.com/jsvine/pdfplumber)
 * [pdfminer.six](https://github.com/pdfminer/pdfminer.six)
